@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+
+{% block title%}
+Search Attachment
+{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load render_table from django_tables2 %}
+{% load bootstrap3 %}
+<body>
+    <div class="container">
+
+        <h3>Búsqueda de archivos adjuntos</h3>
+        <small>Buscar por nombre de Provisión</small>
+        <div class="row">
+            {% if filter %}
+                <div class="col-sm-10">
+                    <form action="" method="get" class="form form-inline">
+                        {% bootstrap_form filter.form layout='inline' %}
+                        {% bootstrap_button 'filter' %}
+                    </form>
+                </div>
+            {% endif %}
+            <small><b>Para descargar, dar click en el nombre del archivo adjunto.</b></small>
+            <div class="col-sm-10">
+                {% render_table table 'django_tables2/bootstrap.html' %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock%}

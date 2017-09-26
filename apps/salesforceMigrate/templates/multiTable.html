@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+
+{% block title%}
+Bienvenido
+{% endblock %}
+
+{% block content %}
+{% load render_table from django_tables2 %}
+
+<div class="container">
+
+    <h1>Provisiones de SF [Izquierda] y DB [Derecha]</h1>
+
+    <p>
+        Pagination should work independently for each table,
+        the second table excludes the column 'id, last_modified_date'.
+    </p>
+    
+    <div class="row">
+        {% for table in tables %}
+            <div class="col-sm-6">{% render_table table %}</div>
+        {% endfor %}
+    </div>
+
+    {% if tables %}
+        <center style="margin-top:50px;">
+            <a href="{% url 'salesforceMigrate:migrate' %}" class="btn btn-danger btn-lg">Go to Migrate</a>
+        </center>
+    {% endif %}
+    
+</div>
+{% endblock%}
+
