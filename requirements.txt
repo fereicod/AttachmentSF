@@ -7,7 +7,7 @@ django-filter==1.0.4
 django-forms-bootstrap==3.1.0
 django-salesforce==0.7.2
 django-tables2==1.11.0
-djangorestframework==3.6.4
+djangorestframework==3.11.2
 et-xmlfile==1.0.1
 idna==2.6
 jdcal==1.3
